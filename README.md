@@ -1,6 +1,6 @@
 # Getting Started with Tic Tac Toe
 
-visit[https://tobitmisoi.com](tobitmisoi)
+visit [tobitmisoi](tobitmisoi.com)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
