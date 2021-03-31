@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import useFunc from './hooks/useFunc';
+import { Endgame, Login, Navbar, Game } from './components/';
 
 function App() {
+
+  const {
+    showEndgame,
+    handleEndgame,
+    winner,
+    showLogin,
+    handleName,
+    ties,
+    userName1,
+    userName2,
+    player1,
+    player2,
+    handleScore
+  } = useFunc()
+
+  console.log(showEndgame)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div className="app mask">
+        {showEndgame ? (
+          <Endgame winner={winner} endgame={handleEndgame} />
+        ) : null}
+        {showLogin ? (<Login names={handleName} />) : null}
+        <Navbar
+          ties={ties}
+          userName1={userName1}
+          userName2={userName2}
+          player1={player1}
+          player2={player2}
+        />
+        <Game
+          userName1={userName1}
+          userName2={userName2}
+          endgame={handleEndgame}
+          handleScore={handleScore}
+        />
+      </div>
+    </>
+  )
 }
 
-export default App;
+export default App
